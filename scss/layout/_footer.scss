@@ -1,0 +1,62 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+@use "../themes/dark--mode";
+
+.footer {
+  @include mix.font(o);
+  @include mix.bg(no, var(--bg--white), no);
+  @include mix.pad(100px 0);
+  &--body {
+    @include flex.flex(no, no, space-between, no);
+    @media (max-width: 870px) {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+  &--main {
+    @include mix.width(max, 300px);
+    &__text {
+      @include mix.ma(43px 0 64px);
+      @include mix.text(var(--bg--77), 16px, 400, 28px, no);
+    }
+    span {
+      @include mix.text(var(--bg--77), 16px, 400, 28px, no);
+    }
+  }
+  &--menus {
+    @include flex.flex(no, center, space-between, 20px);
+    flex-wrap: wrap;
+    @include mix.width(no, 642px);
+    @media (max-width: 870px) {
+      @include mix.width(no, 100%);
+    }
+  }
+  &--menu {
+    @include mix.width(no, 160px);
+    &__title {
+      @include mix.text(var(--bg--black), 20px, 700, 32px, no);
+      @include mix.ma(0 0 32px 0);
+    }
+    &__list {
+      @include flex.flex(column, no, no, 30px);
+    }
+    &__link {
+      @include mix.text(var(--bg--77), 20px, 400, 32px, no);
+    }
+    .hight {
+      @include mix.pos(relative, no, no, no);
+
+      &::after {
+        content: "Hiring!";
+        @include mix.pos(absolute, no, -100px, no, no);
+        @include mix.text(#09121b, 13px, 700, 28px, no);
+        @include btn.btn(1px 14px, 120px, none, #65e4a3);
+      }
+    }
+  }
+}

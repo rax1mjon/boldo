@@ -1,0 +1,487 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+
+.hero {
+  @include mix.pad(162px 0 64px);
+  @include mix.bg(url("../images/Product/hero_Ellipse.png"), var(--bg--0a), no);
+  background-position: right top;
+  &--body {
+    @include flex.flex(no, center, space-between, 30px);
+    @include mix.ma(0 0 56px);
+    @media (max-width: 1025px) {
+      flex-direction: column;
+    }
+  }
+  &--main {
+    @include mix.width(max, 567px);
+    &__title {
+      @include mix.text(var(--bg--white), 49px, 400, 72px);
+    }
+    &__text {
+      @include mix.text(var(--bg--f1), 16px, 400, 28px);
+      @include mix.ma(16px 0 40px);
+    }
+    &__links {
+      @include flex.flex(no, center, no, 24px);
+      @media (max-width: 505px) {
+        flex-direction: column;
+      }
+    }
+    &__link {
+      @include btn.btn(16px 56px, 56px, 2px solid transparent, var(--bg--65));
+      @include mix.text(var(--bg--0a), 20px, 700, 28px);
+      &:hover {
+        @include btn.btn(no, no, 2px solid var(--bg--white), transparent);
+        color: var(--bg--white);
+      }
+    }
+  }
+  &--image {
+    @include mix.width(ma, 493px);
+    img {
+      @include mix.width(no, 100%);
+    }
+  }
+  &--logotives {
+    @include mix.pos(relative);
+    @include flex.flex(no, center, space-between, 20px);
+    flex-wrap: wrap;
+    div {
+      @include mix.pos(absolute, 0, 0, 0, -5px);
+      background: linear-gradient(
+        90deg,
+        #0a2640 0%,
+        rgba(10, 38, 64, 0.109375) 31.6%,
+        rgba(10, 38, 64, 0) 72.89%,
+        #0a2640 97.87%
+      );
+    }
+    svg {
+      @include mix.fill(var(--bg--white));
+    }
+  }
+}
+
+.servise {
+  @include mix.pad(84px 0 185px);
+  @include mix.bg(no, var(--bg--white), no);
+  &--body {
+    @include flex.flex(column, center, no, no);
+    &__smalltitle {
+      display: block;
+      @include mix.text(var(--bg--77), 20px, 400, 32px, center);
+    }
+    &__title {
+      @include mix.pad(12px 0 78px);
+      @include mix.text(var(--bg--black), 48px, 400, 72px, center);
+      @include mix.width(max, 842px);
+    }
+    &__cards {
+      @include flex.flex(no, center, space-between, 40px);
+      flex-wrap: wrap;
+      @include mix.width(no, 100%);
+    }
+  }
+  &--card {
+    @include mix.width(no, 300px);
+    img {
+      @include mix.width(no, 100%);
+    }
+    &__title {
+      @include mix.ma(24px 0 12px);
+      @include mix.text(var(--bg--black), 24px, 400, 36px);
+      @media (max-width: 450px) {
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
+    &__text {
+      @include mix.ma(0 0 40px);
+      @include mix.text(var(--bg--77), 20px, 400, 32px);
+    }
+    &__link {
+      display: inline-block;
+      @include mix.text(var(--bg--0a), 20px, 700, 36px);
+      @include mix.pad(0 0 8px 0);
+      border-bottom: 1px solid var(--bg--0a);
+      &::after {
+        content: "";
+        display: inline-block;
+        @include mix.width(no, 24px);
+        @include mix.height(21px);
+        @include mix.bg(url("../images/Product/servise-right.svg"), no, cover);
+        @include mix.ma(0 0 0 12px);
+      }
+    }
+  }
+}
+
+.customer {
+  @include mix.bg(no, var(--bg--white), no);
+  @include mix.pad(0 0 120px);
+  &--check {
+    @include flex.flex(no, center, space-between, 30px);
+    @media (max-width: 1082px) {
+      flex-direction: column !important;
+    }
+    &__two {
+      flex-direction: row-reverse;
+      @include mix.ma(120px 0 0);
+    }
+  }
+  &--man {
+    @include mix.pos(relative);
+    @include mix.height(610px);
+    @include mix.width(max, 494px);
+    img {
+      @include mix.width(no, 100%);
+      @include mix.height(505px);
+    }
+    &__box {
+      @include mix.pos(absolute, 222px, 57px);
+      @include flex.flex(column, center, center, 20px);
+      @include mix.width(no, 251px);
+      @include mix.pad(40px);
+      @include mix.bg(no, var(--bg--white), no);
+      border-radius: 12px;
+      box-shadow: 0px 4px 32px 0px #0000001f;
+      &in {
+        @include flex.flex(column, no, no, 4px);
+      }
+    }
+  }
+  &--main {
+    @include mix.width(ma, 493px);
+    &__title {
+      @include mix.text(var(--bg--black), 36px, 400, 56px);
+      @include mix.ma(0 0 40px 0);
+    }
+    &__form {
+      @include flex.flex(column, flex-start, no, 24px);
+      label {
+        @include flex.flex(no, center, no, 27px);
+        @include mix.width(no, 100%);
+        @include mix.text(var(--bg--black), 20px, 400, 32px);
+        transition: 0.5s;
+        @media (max-width: 450px) {
+          flex-direction: column;
+        }
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      input[type="checkbox"] {
+        @include mix.pos(relative);
+        width: 36px;
+        height: 36px;
+        appearance: none;
+        border-radius: 50% !important;
+        background-color: #0dbcfc5e;
+        &:before {
+          content: "";
+          @include mix.pos(absolute, 6px, 0, 0, 6px);
+          opacity: 0;
+          width: 24px;
+          height: 24px;
+          @include mix.bg(
+            url("../images/Product/check.svg"),
+            transparent,
+            cover
+          );
+        }
+        &:checked {
+          background-color: #0a2640;
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+      button {
+        @include btn.btn(
+          16px 56px,
+          56px,
+          2px solid var(--bg--0a),
+          var(--bg--0a)
+        );
+        @include mix.text(var(--bg--white), 20px, 700, 28px);
+        transition: 0.5s;
+        &:hover {
+          transform: scale(1.2);
+          background-color: var(--bg--white);
+          color: var(--bg--0a);
+        }
+      }
+      &girl {
+        label {
+          @include mix.pos(relative);
+          @include mix.pad(16px 20px);
+          gap: 12px;
+          z-index: 1;
+          &:hover {
+            background-color: #0a2640;
+            color: var(--bg--white);
+            svg {
+              stroke: var(--bg--white);
+            }
+          }
+          svg {
+            stroke: var(--bg--0a);
+          }
+        }
+        input[type="radio"] {
+          @include mix.pos(absolute, no, no, no, 0);
+
+          width: 100%;
+          height: 100%;
+          appearance: none;
+          background-color: transparent;
+          box-shadow: 0px 4px 32px 0px #00000014;
+          z-index: -1;
+          &:checked {
+            background-color: #0dbcfc5e;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ramp {
+  @include mix.bg(no, var(--bg--0a), no);
+  @include mix.pad(96px 0);
+  &--body {
+    @include mix.pos(relative);
+  }
+  h2 {
+    @include mix.text(var(--bg--white), 48px, 400, 72px);
+    @include mix.width(ma, 716px);
+    @include mix.ma(0 0 72px 0);
+  }
+  &--corusel {
+    @include mix.width(ma, 100%);
+    overflow: hidden;
+    padding: 50px 0;
+    z-index: 1;
+    ul {
+      @include flex.flex(no, flex-start, center, 22px);
+      li {
+        @include mix.bg(no, var(--bg--white));
+        box-shadow: 0px 12px 32px 0px #0000001f;
+        border-radius: 12px;
+        @include mix.pad(40px);
+        @include mix.width(no, 350px);
+        transition: 0.5s;
+        &:hover {
+          transform: scale(1.01);
+        }
+        p {
+          @include mix.text(var(--bg--black), 24px, 400, 36px);
+          @include mix.ma(0 0 40px 0);
+        }
+        .ramp--owner {
+          @include flex.flex(no, center, no, 16px);
+          div {
+            @include flex.flex(column, no, no, 6px);
+            span {
+              @include mix.text(var(--bg--0a), 16px, 700, 32px);
+              &:nth-child(2) {
+                font-weight: 400;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+    button {
+      @include mix.pos(absolute, 82px, 100px);
+      @include flex.flex(no, center, center);
+      @include mix.width(no, 72px);
+      @include mix.height(72px);
+      padding-top: 3px;
+      border-radius: 50%;
+      transition: 0.5s;
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgb(191, 189, 218);
+      }
+      &:nth-last-child(1) {
+        transform: rotate(180deg);
+        right: 0;
+        &:hover {
+          transform: scale(1.1) rotate(180deg);
+        }
+      }
+      @media (max-width: 790px) {
+        position: static;
+        &:nth-last-child(1) {
+          transform: translate(100px, -70px) rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+// **** corusel *****
+
+.owl-carousel .owl-item img {
+  width: auto !important;
+}
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  display: none !important;
+}
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel button.owl-dot {
+  display: none !important;
+}
+
+// **** connect *****
+
+.connect {
+  @include mix.bg(no, var(--bg--white), no);
+  @include mix.pad(124px 0 158px);
+  img {
+    @include mix.width(no, 100%);
+    @include mix.ma(0 0 56px 0);
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+  &--main {
+    @include flex.flex(no, flex-start, space-between, 50px);
+    @media (max-width: 1034px) {
+      flex-direction: column;
+    }
+    h2 {
+      @include mix.width(ma, 500px);
+      @include mix.text(var(--bg--black), 36px, 400, 56px);
+    }
+    &__dropdown {
+      @include mix.width(no, 45%);
+      @include mix.height(220px);
+      @media (max-width: 1034px) {
+        width: 500px;
+        margin: 0 auto;
+      }
+      @media (max-width: 550px) {
+        width: 100%;
+      }
+      div {
+        @include mix.pos(relative);
+        @include mix.pad(0 0 16px 0);
+        @include mix.width(no, 100%);
+        border-bottom: 1px solid var(--bg--c4);
+        transition: 0.5s;
+        &:hover {
+          ul {
+            display: flex;
+          }
+          span::after {
+            transform: rotate(180deg);
+          }
+        }
+        span {
+          @include mix.text(var(--bg--black), 20px, 400, 32px);
+          &::after {
+            content: "";
+            @include mix.pos(absolute, no, 0);
+            display: inline-block;
+            @include mix.width(no, 30px);
+            @include mix.height(30px);
+            @include mix.bg(url(../images/Product/dropdown.svg), no, cover);
+            transition: 0.5s;
+          }
+        }
+      }
+      @include flex.flex(column, no, no, 32px);
+      ul {
+        @include flex.flex(column, no, no, 20px);
+        @include mix.ma(20px 0);
+        display: none;
+        li {
+          @include mix.text(var(--bg--black), 20px, 400, 15px);
+        }
+      }
+    }
+  }
+}
+
+.blog {
+  @include mix.pad(0 0 124px);
+  &--top {
+    @include mix.width(ma, 842px);
+    margin: 0 auto 72px;
+    span {
+      display: block;
+      @include mix.text(var(--bg--77), 20px, 400, 32px, center);
+      @include mix.ma(12px);
+    }
+    h2 {
+      @include mix.text(var(--bg--black), 48px, 400, 72px, center);
+    }
+  }
+  &--cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    @media (max-width: 840px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 565px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  &--card {
+    @include mix.pos(relative);
+    @include mix.height(424px);
+    img {
+      @include mix.width(no, 100%);
+      height: 209px;
+    }
+    span {
+      @include mix.text(var(--bg--0a), 16px, 700, 28px);
+      @include mix.ma(0 12px 0 0);
+    }
+    time {
+      @include mix.text(var(--bg--77), 16px, 400, 28px);
+    }
+    p {
+      @include mix.text(var(--bg--black), 20px, 400, 32px);
+      @include mix.ma(12px 44px 20px 0);
+    }
+    div {
+      @include mix.pos(absolute, no, no, 0, 0);
+      @include flex.flex(no, center, no, 21px);
+      @include mix.width(no, 100%);
+      @include mix.height(32px);
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  a {
+    @include btn.btn(
+      16px 56px,
+      56px,
+      2px solid var(--bg--0a),
+      var(--bg--white)
+    );
+    @include mix.text(var(--bg--0a), 20px, 700, 28px, center);
+    margin-top: 84px;
+    margin-left: 38%;
+    @media (max-width:675px) {
+      margin-left: 20%;
+    }
+    @media (max-width:350px) {
+      margin-left: 10%;
+    }
+  }
+}
+

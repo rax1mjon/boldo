@@ -1,0 +1,60 @@
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mix;
+* {
+  margin: 0;
+  padding: 0;
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+html,
+body {
+  @include mix.font(O);
+  scroll-behavior: smooth;
+  background-color: white;
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.5s;
+  &:hover {
+    text-decoration: underline;
+    transform: scale(1.2);
+  }
+}
+
+.container {
+  $padding: 20;
+  max-width: func.container(1400, 100, $padding);
+  margin: 0 auto;
+  padding: 0 $padding + px;
+}
+
+h1,
+h2,
+h3 {
+  @include mix.font(M);
+}
+
+.backtop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  opacity: 0;
+  box-shadow: 0 0 16px 5px rgba(4, 4, 236, 0.425),inset 0 0 0 3px #fff;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.backtop-show {
+  opacity: 1;
+}

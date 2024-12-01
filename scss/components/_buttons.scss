@@ -1,0 +1,7 @@
+@mixin btn ($padding ,$radius, $border, $bg-color){
+display: inline-block;
+padding: $padding;
+border-radius: $radius; 
+border:$border;
+background: $bg-color ;
+}

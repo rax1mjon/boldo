@@ -1,0 +1,181 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+
+.header {
+  &--logo {
+    svg {
+      @include mix.fill(var(--bg--0a));
+    }
+    span {
+      color: var(--bg--0a);
+    }
+  }
+  &--nav {
+    &__link {
+      color: var(--bg--0a);
+    }
+    &__login {
+      background-color: transparent;
+      border-color: var(--bg--0a);
+    }
+  }
+}
+
+.hero {
+  @include mix.pad(194px 0 96px);
+  @include mix.bg(no, var(--bg--65), no);
+  &--body {
+    @include flex.flex(no, center, space-between, 20px);
+    @media (max-width: 820px) {
+      flex-direction: column;
+    }
+  }
+  &--top {
+    @include mix.width(ma, 600px);
+    span {
+      @include mix.text(var(--bg--0a), 20px, 400, 32px);
+      @include mix.ma(0 0 12px);
+    }
+    h2 {
+      @include mix.text(var(--bg--black), 48px, 400, 72px);
+      @media (max-width: 400px) {
+        font-size: 30px;
+        line-height: 50px;
+      }
+    }
+  }
+  p {
+    @include mix.width(ma, 455px);
+    @include mix.text(var(--bg--0a), 16px, 400, 28px);
+  }
+}
+
+.numbers {
+  @include mix.pad(96px 0);
+  span {
+    display: block;
+    @include mix.text(var(--bg--0a), 20px, 400, 32px, center);
+  }
+  h2 {
+    @include mix.text(var(--bg--0a), 48px, 400, 72px, center);
+    @include mix.ma(12px auto 84px);
+    @include mix.width(ma, 842px);
+    @media (max-width: 450px) {
+      font-size: 30px;
+      line-height: 30px;
+    }
+  }
+  ul {
+    @include flex.flex(no, center, space-between, 20px);
+    @include mix.width(no, 100%);
+    flex-wrap: wrap;
+    @media (max-width: 795px) {
+      justify-content: center;
+      gap: 50px;
+    }
+    li {
+      @include flex.flex(column, no, no, 32px);
+      h3 {
+        @include mix.text(var(--bg--0a), 96px, 400, 56px);
+        @media (max-width: 450px) {
+          font-size: 58px;
+          line-height: 40px;
+        }
+      }
+      span {
+        @include mix.text(var(--bg--0a), 24px, 400, 36px, left);
+      }
+    }
+  }
+}
+
+.story {
+  @include mix.pad(120px 0 96px);
+  @include mix.bg(no, var(--bg--0a), no);
+  &--body {
+    @include mix.width(ma, 800px);
+    @include mix.ma(0 auto);
+    span {
+      @include mix.text(var(--bg--white), 20px, 400, 32px);
+    }
+    h2 {
+      @include mix.text(var(--bg--white), 48px, 400, 72px);
+      @include mix.ma(12px 0 30px);
+      @media (max-width: 500px) {
+        font-size: 40px;
+        line-height: 50px;
+      }
+    }
+    p {
+      @include mix.text(var(--bg--f1), 20px, 400, 32px);
+    }
+  }
+}
+
+.team {
+  @include mix.pad(96px 0 120px);
+  &--body {
+    @include mix.width(ma, 800px);
+    @include mix.ma(0 auto 52px);
+    span {
+      @include mix.text(var(--bg--77), 20px, 400, 32px);
+    }
+    h2 {
+      @include mix.text(var(--bg--black), 48px, 400, 72px);
+      @include mix.ma(12px 0 23px);
+    }
+    p {
+      @include mix.text(var(--bg--77), 20px, 400, 32px);
+    }
+  }
+  ol {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    @include mix.ma(0 0 110px);
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 500px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    li {
+      img {
+        @include mix.width(no, 100%);
+      }
+      p {
+        @include mix.ma(24px 0 12px);
+        @include mix.text(var(--bg--black), 28px, 400, 48px);
+      }
+      span {
+        @include mix.text(var(--bg--77), 20px, 400, 32px);
+      }
+    }
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    li {
+      @include flex.flex(no, center, no, 24px);
+      p {
+        @include mix.ma(0 0 12px);
+        @include mix.text(var(--bg--black), 28px, 400, 48px);
+        @media (max-width:380px) {
+          font-size: 22px;
+          font-weight: 500;
+        }
+      }
+      span {
+        @include mix.text(var(--bg--77), 20px, 400, 32px);
+      }
+    }
+  }
+}

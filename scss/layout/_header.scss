@@ -1,0 +1,88 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+@use "../themes/dark--mode";
+
+.header {
+  @include mix.pos(fixed, 0, no, no, no);
+  @include mix.bg(no, transparent, no);
+  @include mix.pad(30px 0);
+  @include mix.width(no, 100%);
+  z-index: 111;
+  transition: 0.5s;
+  &--navbox {
+    @include flex.flex(no, center, space-between, no);
+    @include mix.width(no, 100%);
+    @media (max-width: 700px) {
+      @include flex.flex(column, no, center, 20px);
+    }
+    &__brand {
+      @include flex.flex(no, center, space-between, no);
+      @media (max-width: 700px) {
+        @include mix.width(no, 100%);
+      }
+    }
+    &__humburger {
+      display: none;
+      @include mix.width(no, 45px);
+      @include mix.height(45px);
+      @media (max-width: 700px) {
+        @include flex.flex(column, no, no, 10px);
+      }
+      span {
+        display: inline-block;
+        background-color: var(--bg--white);
+        border-radius: 5px;
+        @include mix.height(10px);
+        @include mix.width(no, 100%);
+      }
+    }
+  }
+  &--logo {
+    @include flex.flex(no, center, no, 11.26px);
+    svg {
+      @include mix.fill(var(--bg--65));
+    }
+    span {
+      @include mix.font(M);
+      @include mix.text(var(--bg--white), 43.25px, 700, 33.64px, no);
+    }
+  }
+  &--nav {
+    @include mix.font(o);
+    @include flex.flex(no, center, center, 40px);
+    flex-wrap: wrap;
+    @media (max-width: 700px) {
+      display: none;
+      &__active {
+        display: flex;
+      }
+    }
+    &__list {
+      @include flex.flex(no, center, no, 40px);
+      flex-wrap: wrap;
+    }
+    &__link {
+      @include mix.pad(6px 0);
+      @include mix.text(var(--bg--white), 16px, 600, 28px, no);
+    }
+    &__login {
+      @include btn.btn(
+        8px 40px,
+        24px,
+        2px solid var(--bg--white),
+        var(--bg--white)
+      );
+      @include mix.text(var(--bg--0a), 16px, 700, 24px, no);
+    }
+  }
+}
+
+.navbar-shrink {
+  background-color: #3a7cdf88;
+  padding: 40px 0;
+}

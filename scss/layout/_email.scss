@@ -1,0 +1,64 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/flex" as flex;
+@use "../themes/dark--mode";
+
+.email {
+  @include mix.bg(no, var(--bg--white), no);
+  &--card {
+    @include mix.bg(
+      url(../images/layout-images/email-bg.png),
+      var(--bg--0a),
+      no
+    );
+    background-position: top right;
+    @include mix.pad(72px 20px);
+    border-radius: 12px;
+    &__body {
+      @include mix.width(ma, 716px);
+      @include mix.ma(0 auto);
+      h2 {
+        @include mix.text(var(--bg--white), 48px, 400, 72px, center);
+        @include mix.ma(0 0 48px 0);
+        @media (max-width: 490px) {
+          font-size: 38px;
+          line-height: 50px;
+        }
+      }
+    }
+  }
+  &--form {
+    @include flex.flex(no, center, center, 24px);
+    @media (max-width: 702px) {
+      flex-direction: column;
+    }
+    input {
+      outline: none;
+      @include mix.width(no, 370px);
+      border-radius: 240px;
+      border: 2px solid var(--bg--white);
+      @include mix.pad(12px 32px);
+      @include mix.text(var(--bg--black), 20px, 400, 32px);
+      @media (max-width: 490px) {
+        @include mix.width(no, 100%);
+      }
+      &::placeholder {
+        @include mix.text(var(--bg--black), 20px, 400, 32px);
+      }
+      &:focus {
+        box-shadow: inset 0 -4px 0 var(--bg--65);
+      }
+    }
+    button {
+      @include btn.btn(16px 56px, 56px, 2px solid var(--bg--65), var(--bg--65));
+      @include mix.text(var(--bg--0a), 20px, 700, 28px);
+      transition: 0.5s;
+      &:hover {
+        @include btn.btn(no, no, 2px solid var(--bg--white), transparent);
+        color: var(--bg--white);
+        transform: scale(1.1);
+      }
+    }
+  }
+}

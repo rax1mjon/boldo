@@ -1,0 +1,145 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+
+.header {
+  &--logo {
+    span {
+      color: var(--bg--0a);
+    }
+  }
+  &--nav {
+    &__link {
+      color: var(--bg--0a);
+    }
+    &__login {
+      border-color: var(--bg--0a);
+    }
+  }
+}
+
+.hero {
+  @include mix.pad(143px 0 0);
+  span {
+    display: block;
+    @include mix.text(var(--bg--0a), 20px, 400, 32px, center);
+  }
+  h2 {
+    @include mix.text(var(--bg--0a), 64px, 400, 84px, center);
+    @include mix.ma(12px 0 67px);
+    @media (max-width: 470px) {
+      font-size: 48px;
+      line-height: 50px;
+    }
+  }
+  &--main {
+    @include flex.flex(no, center, space-between, 20px);
+    @include mix.pad(0 0 72px);
+    border-bottom: 1px solid var(--bg--0a);
+    @media (max-width: 958px) {
+      flex-direction: column;
+    }
+    &__image {
+      @include mix.width(ma, 550px);
+      img {
+        @include mix.width(no, 100%);
+      }
+    }
+    &__card {
+      @include mix.width(ma, 550px);
+      span {
+        @include mix.text(var(--bg--0a), 16px, 700, 28px);
+        @include mix.ma(0 12px 0 0);
+        display: inline;
+      }
+      time {
+        @include mix.text(var(--bg--77), 16px, 400, 28px);
+      }
+      h3 {
+        @include mix.text(var(--bg--black), 48px, 400, 72px);
+        @include mix.ma(12px 0 20px);
+        @media (max-width: 470px) {
+          font-size: 30px;
+          line-height: 50px;
+        }
+      }
+      div {
+        @include flex.flex(no, center, no, 21px);
+        @include mix.width(no, 100%);
+        @include mix.height(32px);
+        img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+}
+
+.blog {
+  @include mix.pad(96px 0 124px);
+  h2 {
+    @include mix.text(var(--bg--black), 48px, 400, 72px);
+    @include mix.ma(0 0 40px);
+  }
+  &--cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    @media (max-width: 840px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 565px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  &--card {
+    @include mix.pos(relative);
+    @include mix.height(424px);
+    img {
+      @include mix.width(no, 100%);
+      height: 209px;
+    }
+    span {
+      @include mix.text(var(--bg--0a), 16px, 700, 28px);
+      @include mix.ma(0 12px 0 0);
+    }
+    time {
+      @include mix.text(var(--bg--77), 16px, 400, 28px);
+    }
+    p {
+      @include mix.text(var(--bg--black), 20px, 400, 32px);
+      @include mix.ma(12px 44px 20px 0);
+    }
+    div {
+      @include mix.pos(absolute, no, no, 0, 0);
+      @include flex.flex(no, center, no, 21px);
+      @include mix.width(no, 100%);
+      @include mix.height(32px);
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  a {
+    @include btn.btn(
+      16px 56px,
+      56px,
+      2px solid var(--bg--0a),
+      var(--bg--white)
+    );
+    @include mix.text(var(--bg--0a), 20px, 700, 28px, center);
+    margin-top: 84px;
+    margin-left: 38%;
+    @media (max-width: 675px) {
+      margin-left: 20%;
+    }
+    @media (max-width: 350px) {
+      margin-left: 10%;
+    }
+  }
+}
