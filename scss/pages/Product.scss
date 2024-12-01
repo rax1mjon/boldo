@@ -54,10 +54,10 @@
       @include mix.pos(absolute, 0, 0, 0, -5px);
       background: linear-gradient(
         90deg,
-        #0a2640 0%,
+        var(--bg--0a) 0%,
         rgba(10, 38, 64, 0.109375) 31.6%,
         rgba(10, 38, 64, 0) 72.89%,
-        #0a2640 97.87%
+        var(--bg--0a) 97.87%
       );
     }
     svg {
@@ -151,6 +151,9 @@
       box-shadow: 0px 4px 32px 0px #0000001f;
       &in {
         @include flex.flex(column, no, no, 4px);
+        span {
+          color :var(--bg--black);
+        }
       }
     }
   }

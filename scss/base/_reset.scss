@@ -1,5 +1,6 @@
 @use "../utils/functions" as func;
 @use "../utils/mixins" as mix;
+@use "../utils/variables" ;
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +14,7 @@ html,
 body {
   @include mix.font(O);
   scroll-behavior: smooth;
-  background-color: white;
+  background-color: var(--bg--white);
 }
 
 li,
